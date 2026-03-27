@@ -85,9 +85,7 @@ database/03_seed_data.sql
 Populates the database with sample data used for queries and testing.
 
 ### Evidence to capture
-Run:
-```sql
----SELECT COUNT(*) FROM Customer
+execute: SELECT COUNT(*) FROM Customer
 images/03_seed_data.png
 ▶️ Step 4 — Queries and DML Practice
 
@@ -98,7 +96,7 @@ dml-dql/01_queries_and_dml.sql
 This section demonstrates core SQL querying and data manipulation:
 
 Queries (DQL)
-'''SELECT statements
+SELECT statements
 WHERE, IN, LIKE, BETWEEN
 ORDER BY
 DISTINCT
