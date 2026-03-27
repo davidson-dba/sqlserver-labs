@@ -85,9 +85,10 @@ database/03_seed_data.sql
 Populates the database with sample data used for queries and testing.
 
 ### Evidence to capture
-execute: SELECT COUNT(*) FROM Customer
+ SELECT COUNT(*) FROM Customer
 images/03_seed_data.png
-▶️ Step 4 — Queries and DML Practice
+
+#▶️ Step 4 — Queries and DML Practice
 
 Script:
 
@@ -115,7 +116,7 @@ Evidence to capture'''
 Screenshot of complex JOIN query execution.
 
 images/04_query_example.png
-▶️ Step 5 — Views
+# ▶️ Step 5 — Views
 
 Script:
 
@@ -130,7 +131,7 @@ Complex JOIN + aggregation views
 ALTER and DROP views
 Evidence
 images/05_view_example.png
-▶️ Step 6 — Stored Procedures
+# ▶️ Step 6 — Stored Procedures
 
 Script:
 
@@ -147,7 +148,7 @@ SQL Injection mitigation
 TRY/CATCH error handling
 Evidence
 images/06_procedure_example.png
-▶️ Step 7 — Triggers and Auditing
+# ▶️ Step 7 — Triggers and Auditing
 
 Script:
 
@@ -165,7 +166,7 @@ This step simulates a real auditing scenario.
 
 Evidence
 images/07_trigger_example.png
-▶️ Step 8 — Functions and Temporary Objects
+# ▶️ Step 8 — Functions and Temporary Objects
 
 Script:
 
