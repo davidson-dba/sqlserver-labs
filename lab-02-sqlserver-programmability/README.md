@@ -1,112 +1,196 @@
-📌 SQL Server Lab — Programmability Objects
+This repository contains a complete hands-on SQL Server lab designed to simulate a real database environment and demonstrate practical DBA and Database Developer skills.
 
-This lab demonstrates the creation and usage of SQL Server programmability objects, including:
+The lab covers the full lifecycle of a database:
 
-Views
-Stored Procedures
-Triggers
-Functions
-Temporary tables and table variables
+- Database creation
+- Schema design and relationships
+- Seed data loading
+- Queries and DML operations
+- Programmability objects (views, functions, procedures and triggers)
 
-The goal is to practice database automation, auditing and reusable logic.
+---
 
-🧰 Environment
-SQL Server Developer Edition
-SQL Server Management Studio (SSMS)
-Sample database used in course (CLIENTES)
-▶️ Step 1 — Working with Views
+# 🧰 Environment
 
-script 1: scripts/01_views.sql
-What is implemented
+- SQL Server Developer Edition  
+- SQL Server Management Studio (SSMS)
 
-✔ Creation of views
-✔ Filtering data using views
-✔ Insert and delete through views
-✔ Complex view with JOINs and aggregations
-✔ Altering and dropping views
+---
 
-Evidence to capture (prints)
+# 🗂 Repository Structure
 
-Take screenshots of:
 
-View created in Object Explorer
-SELECT * FROM vw_custumerMadrid
-SELECT * FROM dailysales
+database/
+dml-dql/
+programmability/
+images/
 
-Save inside /images folder.
 
-▶️ Step 2 — Stored Procedures
+---
 
-Script2: scripts/02_stored_procedures.sql
-What is implemented
+# ▶️ Step 1 — Database Creation
 
-✔ Creating stored procedures
-✔ Altering and dropping procedures
-✔ Input parameters
-✔ Output parameters
-✔ Optional parameters
-✔ Variables and control flow (IF / WHILE)
-✔ Dynamic SQL
-✔ SQL Injection demonstration and mitigation
-✔ TRY/CATCH error handling
+Script:
 
+database/01_create_database.sql
+
+
+Creates the database and prepares the environment.
+
+### Evidence to capture
+Screenshot of the database visible in Object Explorer.
+
+
+images/01_database_created.png
+
+
+---
+
+# ▶️ Step 2 — Schema Creation (Tables & Relationships)
+
+Script:
+
+database/02_create_tables.sql
+
+
+Tables created:
+
+- Customer
+- Supplier
+- Product
+- Order
+- OrderItem
+
+Includes:
+- Primary Keys
+- Foreign Keys
+- Relationships between entities
+
+### Evidence to capture
+Screenshot of tables created.
+
+
+images/02_tables_created.png
+
+
+---
+
+# ▶️ Step 3 — Seed Data (Test Dataset)
+
+Script:
+
+database/03_seed_data.sql
+
+
+Populates the database with sample data used for queries and testing.
+
+### Evidence to capture
+Run:
+```sql
+SELECT COUNT(*) FROM Customer
+images/03_seed_data.png
+▶️ Step 4 — Queries and DML Practice
+
+Script:
+
+dml-dql/01_queries_and_dml.sql
+
+This section demonstrates core SQL querying and data manipulation:
+
+Queries (DQL)
+SELECT statements
+WHERE, IN, LIKE, BETWEEN
+ORDER BY
+DISTINCT
+Aggregations (COUNT, SUM, AVG, MIN, MAX)
+GROUP BY and HAVING
+INNER JOIN, LEFT JOIN, RIGHT JOIN
+UNION
+Subqueries and EXISTS
+Data Manipulation (DML)
+INSERT
+UPDATE
+DELETE
+Transactions (BEGIN TRAN / COMMIT / ROLLBACK)
 Evidence to capture
 
-Take screenshots of:
+Screenshot of complex JOIN query execution.
 
-Executing EXEC ProductList
-Procedure created under Programmability → Stored Procedures
-TRY/CATCH error output
-▶️ Step 3 — Triggers and Auditing
+images/04_query_example.png
+▶️ Step 5 — Views
 
-Script3: scripts/03_triggers.sql
-What is implemented
+Script:
 
-✔ Audit table creation
-✔ DML Trigger (INSERT / DELETE logging)
-✔ Enabling and disabling triggers
-✔ Server LOGON trigger example
-✔ Querying active sessions
+programmability/01_views.sql
 
-This lab simulates real auditing scenario.
+Implemented:
 
-Evidence to capture
+Creating views
+Filtering data via views
+INSERT and DELETE using views
+Complex JOIN + aggregation views
+ALTER and DROP views
+Evidence
+images/05_view_example.png
+▶️ Step 6 — Stored Procedures
 
-Screenshots:
+Script:
 
-Insert into Product table
-Data recorded in produto_auditoria
-Trigger visible in SSMS
+programmability/02_procedures.sql
 
-This part is VERY relevant for DBA role.
+Implemented:
 
-▶️ Step 4 — Functions and Temporary Objects
+Creating and altering procedures
+Input and output parameters
+Optional parameters
+Variables and control flow (IF / WHILE)
+Dynamic SQL
+SQL Injection mitigation
+TRY/CATCH error handling
+Evidence
+images/06_procedure_example.png
+▶️ Step 7 — Triggers and Auditing
 
-Script 4: scripts/04_functions_temp_tables.sql
-What is implemented
+Script:
 
-✔ Scalar functions
-✔ Table-valued functions
-✔ Table variables
-✔ Temporary tables (# and ##)
-✔ Temporary stored procedures
+programmability/03_triggers.sql
 
-This demonstrates reusable logic and tempdb usage.
+Implemented:
 
-Evidence to capture
+Audit table creation
+DML triggers (INSERT / DELETE logging)
+Enabling and disabling triggers
+LOGON trigger example
+Querying active sessions
 
-Screenshots:
+This step simulates a real auditing scenario.
 
-Function execution result
-Temp tables in tempdb
-Query results using functions
-✅ Lab Results
+Evidence
+images/07_trigger_example.png
+▶️ Step 8 — Functions and Temporary Objects
 
-At the end of this lab we successfully practiced:
+Script:
 
-Reusable database logic
+programmability/04_functions.sql
+
+Implemented:
+
+Scalar functions
+Table-valued functions
+Table variables
+Local and global temporary tables (# / ##)
+Temporary stored procedures
+🎯 Skills Demonstrated
+
+By completing this lab, the following skills were practiced:
+
+Database design and relationships
+SQL querying and data manipulation
+Transactions and error handling
 Automation with stored procedures
 Auditing with triggers
-Performance and temporary storage concepts
+Reusable logic with functions and views
+tempdb and temporary objects usage
+🚀 Purpose
 
-These are core skills for SQL Server DBA and Database Developer roles.
+This project is part of my SQL Server and Azure certification preparation and demonstrates hands-on DBA skills using GitHub for version control.
