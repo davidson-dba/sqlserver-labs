@@ -1,7 +1,8 @@
+# 🗄️ SQL Server Client Database Lab
+
 This repository contains a complete hands-on SQL Server lab designed to simulate a real database environment and demonstrate practical DBA and Database Developer skills.
 
 The lab covers the full lifecycle of a database:
-
 - Database creation
 - Schema design and relationships
 - Seed data loading
@@ -10,186 +11,173 @@ The lab covers the full lifecycle of a database:
 
 ---
 
-# 🧰 Environment
+## 🧰 Environment
 
-- SQL Server Developer Edition  
+- SQL Server Developer Edition
 - SQL Server Management Studio (SSMS)
 
 ---
 
-# 🗂 Repository Structure
-
-
-database/
-dml-dql/
-programmability/
-images/
-
-
----
-
-# ▶️ Step 1 — Database Creation
-
-Script:
-
-database/01_create_database.sql
-
-
-Creates the database and prepares the environment.
-
-### Evidence to capture
-Screenshot of the database visible in Object Explorer.
-
-
-images/01_database_created.png
-
+## 🗂️ Repository Structure
+```
+sqlserver-client-database-project/
+├── database/
+├── dml-dql/
+├── programmability/
+└── images/
+```
 
 ---
 
-# ▶️ Step 2 — Schema Creation (Tables & Relationships)
+## ▶️ Step 1 — Database, Tables & Relationships
 
-Script:
+**Script:** `database/01_create_database_and_tables.sql`
 
-database/02_create_tables.sql
-
+Creates the CLIENT database and all tables with their relationships.
 
 Tables created:
-
-- Customer
-- Supplier
-- Product
-- Order
-- OrderItem
+- `Customer`
+- `Supplier`
+- `Product`
+- `Order`
+- `OrderItem`
 
 Includes:
 - Primary Keys
 - Foreign Keys
 - Relationships between entities
 
-### Evidence to capture
-Screenshot of tables created.
+**Evidence**
+Screenshot of the database and tables visible in Object Explorer.
 
-
-images/02_tables_created.png
-
+![Database and Tables Created](images/01_database_tables_created.png)
 
 ---
 
-# ▶️ Step 3 — Seed Data (Test Dataset)
+## ▶️ Step 2 — Seed Data (Test Dataset)
 
-Script:
-
-database/03_seed_data.sql
-
+**Script:** `database/02_seed_data.sql`
 
 Populates the database with sample data used for queries and testing.
 
-### Evidence to capture
- SELECT COUNT(*) FROM Customer
-images/03_seed_data.png
+**Evidence**
+```sql
+SELECT COUNT(*) FROM Customer
+```
 
-#▶️ Step 4 — Queries and DML Practice
+![Seed Data](images/02_seed_data.png)
 
-Script:
+---
 
-dml-dql/01_queries_and_dml.sql
+## ▶️ Step 3 — Queries and DML Practice
 
-This section demonstrates core SQL querying and data manipulation:
+**Script:** `dml-dql/01_queries_and_dml.sql`
 
-Queries (DQL)
-SELECT statements
-WHERE, IN, LIKE, BETWEEN
-ORDER BY
-DISTINCT
-Aggregations (COUNT, SUM, AVG, MIN, MAX)
-GROUP BY and HAVING
-INNER JOIN, LEFT JOIN, RIGHT JOIN
-UNION
-Subqueries and EXISTS
-Data Manipulation (DML)
-INSERT
-UPDATE
-DELETE
-Transactions (BEGIN TRAN / COMMIT / ROLLBACK)
-Evidence to capture'''
+**Queries (DQL)**
+- `SELECT` statements
+- `WHERE`, `IN`, `LIKE`, `BETWEEN`
+- `ORDER BY`, `DISTINCT`
+- Aggregations (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`)
+- `GROUP BY` and `HAVING`
+- `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`
+- `UNION`
+- Subqueries and `EXISTS`
 
+**Data Manipulation (DML)**
+- `INSERT`, `UPDATE`, `DELETE`
+- Transactions (`BEGIN TRAN` / `COMMIT` / `ROLLBACK`)
+
+**Evidence**
 Screenshot of complex JOIN query execution.
 
-images/04_query_example.png
-# ▶️ Step 5 — Views
+![Query Example](images/03_query_example.png)
 
-Script:
+---
 
-programmability/01_views.sql
+## ▶️ Step 4 — Views
 
-Implemented:
-
-Creating views
-Filtering data via views
-INSERT and DELETE using views
-Complex JOIN + aggregation views
-ALTER and DROP views
-Evidence
-images/05_view_example.png
-# ▶️ Step 6 — Stored Procedures
-
-Script:
-
-programmability/02_procedures.sql
+**Script:** `programmability/01_views.sql`
 
 Implemented:
+- Creating views
+- Filtering data via views
+- `INSERT` and `DELETE` using views
+- Complex `JOIN` + aggregation views
+- `ALTER` and `DROP` views
 
-Creating and altering procedures
-Input and output parameters
-Optional parameters
-Variables and control flow (IF / WHILE)
-Dynamic SQL
-SQL Injection mitigation
-TRY/CATCH error handling
-Evidence
-images/06_procedure_example.png
-# ▶️ Step 7 — Triggers and Auditing
+**Evidence**
 
-Script:
+![View Example](images/04_view_example.png)
 
-programmability/03_triggers.sql
+---
 
-Implemented:
+## ▶️ Step 5 — Stored Procedures
 
-Audit table creation
-DML triggers (INSERT / DELETE logging)
-Enabling and disabling triggers
-LOGON trigger example
-Querying active sessions
-
-This step simulates a real auditing scenario.
-
-Evidence
-images/07_trigger_example.png
-# ▶️ Step 8 — Functions and Temporary Objects
-
-Script:
-
-programmability/04_functions.sql
+**Script:** `programmability/02_procedures.sql`
 
 Implemented:
+- Creating and altering procedures
+- Input and output parameters
+- Optional parameters
+- Variables and control flow (`IF` / `WHILE`)
+- Dynamic SQL
+- SQL Injection mitigation
+- `TRY/CATCH` error handling
 
-Scalar functions
-Table-valued functions
-Table variables
-Local and global temporary tables (# / ##)
-Temporary stored procedures
-🎯 Skills Demonstrated
+**Evidence**
 
-By completing this lab, the following skills were practiced:
+![Procedure Example](images/05_procedure_example.png)
 
-Database design and relationships
-SQL querying and data manipulation
-Transactions and error handling
-Automation with stored procedures
-Auditing with triggers
-Reusable logic with functions and views
-tempdb and temporary objects usage
-🚀 Purpose
+---
+
+## ▶️ Step 6 — Triggers and Auditing
+
+**Script:** `programmability/03_triggers.sql`
+
+Implemented:
+- Audit table creation
+- DML triggers (`INSERT` / `DELETE` logging)
+- Enabling and disabling triggers
+- `LOGON` trigger example
+- Querying active sessions
+
+> This step simulates a real auditing scenario.
+
+**Evidence**
+
+![Trigger Example](images/06_trigger_example.png)
+
+---
+
+## ▶️ Step 7 — Functions and Temporary Objects
+
+**Script:** `programmability/04_functions.sql`
+
+Implemented:
+- Scalar functions
+- Table-valued functions
+- Table variables
+- Local and global temporary tables (`#` / `##`)
+- Temporary stored procedures
+
+**Evidence**
+
+![Functions Example](images/07_functions_example.png)
+
+---
+
+## 🎯 Skills Demonstrated
+
+- Database design and relationships
+- SQL querying and data manipulation
+- Transactions and error handling
+- Automation with stored procedures
+- Auditing with triggers
+- Reusable logic with functions and views
+- `tempdb` and temporary objects usage
+
+---
+
+## 🚀 Purpose
 
 This project is part of my SQL Server and Azure certification preparation and demonstrates hands-on DBA skills using GitHub for version control.
