@@ -1,0 +1,107 @@
+/*==================================================================================
+ SQL SERVER LAB - SCRIPT 01
+ DATABASE, TABLES AND FOREIGN KEYS CREATION
+==================================================================================*/
+
+USE master
+GO
+
+CREATE DATABASE [CLIENT]
+ON PRIMARY 
+( NAME = N'CLIENT', FILENAME = N'P:\Data\CLIENT.mdf', SIZE = 10240KB, FILEGROWTH = 65536KB )
+LOG ON 
+( NAME = N'CLIENT_log', FILENAME = N'L:\Log\CLIENT_log.ldf', SIZE = 8192KB, FILEGROWTH = 65536KB )
+GO
+
+USE [CLIENT]
+GO
+
+/*==============================================================*/
+/* Table: Customer                                              */
+/*==============================================================*/
+CREATE TABLE Customer (
+   Id                   INT                  IDENTITY,
+   FirstName            NVARCHAR(40)         NOT NULL,
+   LastName             NVARCHAR(40)         NOT NULL,
+   City                 NVARCHAR(40)         NULL,
+   Country              NVARCHAR(40)         NULL,
+   Phone                NVARCHAR(20)         NULL,
+   CONSTRAINT PK_CUSTOMER PRIMARY KEY (Id)
+)
+GO
+
+/*==============================================================*/
+/* Table: Supplier                                              */
+/*==============================================================*/
+CREATE TABLE Supplier (
+   Id                   INT                  IDENTITY,
+   CompanyName          NVARCHAR(40)         NOT NULL,
+   ContactName          NVARCHAR(50)         NULL,
+   ContactTitle         NVARCHAR(40)         NULL,
+   City                 NVARCHAR(40)         NULL,
+   Country              NVARCHAR(40)         NULL,
+   Phone                NVARCHAR(30)         NULL,
+   Fax                  NVARCHAR(30)         NULL,
+   CONSTRAINT PK_SUPPLIER PRIMARY KEY (Id)
+)
+GO
+
+/*==============================================================*/
+/* Table: Product                                               */
+/*==============================================================*/
+CREATE TABLE Product (
+   Id                   INT                  IDENTITY,
+   ProductName          NVARCHAR(50)         NOT NULL,
+   SupplierId           INT                  NOT NULL,
+   UnitPrice            DECIMAL(12,2)        NULL DEFAULT 0,
+   Package              NVARCHAR(30)         NULL,
+   IsDiscontinued       BIT                  NOT NULL DEFAULT 0,
+   CONSTRAINT PK_PRODUCT PRIMARY KEY (Id)
+)
+GO
+
+ALTER TABLE Product
+   ADD CONSTRAINT FK_PRODUCT_REFERENCE_SUPPLIER FOREIGN KEY (SupplierId)
+      REFERENCES Supplier (Id)
+GO
+
+/*==============================================================*/
+/* Table: Order                                                 */
+/*==============================================================*/
+CREATE TABLE [Order] (
+   Id                   INT                  IDENTITY,
+   OrderDate            DATETIME             NOT NULL DEFAULT GETDATE(),
+   OrderNumber          NVARCHAR(10)         NULL,
+   CustomerId           INT                  NOT NULL,
+   TotalAmount          DECIMAL(12,2)        NULL DEFAULT 0,
+   CONSTRAINT PK_ORDER PRIMARY KEY (Id)
+)
+GO
+
+ALTER TABLE [Order]
+   ADD CONSTRAINT FK_ORDER_REFERENCE_CUSTOMER FOREIGN KEY (CustomerId)
+      REFERENCES Customer (Id)
+GO
+
+/*==============================================================*/
+/* Table: OrderItem                                             */
+/*==============================================================*/
+CREATE TABLE OrderItem (
+   Id                   INT                  IDENTITY,
+   OrderId              INT                  NOT NULL,
+   ProductId            INT                  NOT NULL,
+   UnitPrice            DECIMAL(12,2)        NOT NULL DEFAULT 0,
+   Quantity             INT                  NOT NULL DEFAULT 1,
+   CONSTRAINT PK_ORDERITEM PRIMARY KEY (Id)
+)
+GO
+
+ALTER TABLE OrderItem
+   ADD CONSTRAINT FK_ORDERITE_REFERENCE_ORDER FOREIGN KEY (OrderId)
+      REFERENCES [Order] (Id)
+GO
+
+ALTER TABLE OrderItem
+   ADD CONSTRAINT FK_ORDERITE_REFERENCE_PRODUCT FOREIGN KEY (ProductId)
+      REFERENCES Product (Id)
+GO
