@@ -94,7 +94,7 @@ SELECT COUNT(*) FROM OrderItem
 **Evidence**
 Screenshot of complex JOIN query execution.
 
-![Query Example](images/03_query_example.png)
+![Query Example](https://github.com/davidson-dba/sqlserver-labs/tree/main/sqlserver-client-database-project/images/03_join_order_product_customer.png)
 
 ---
 
