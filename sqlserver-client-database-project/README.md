@@ -166,7 +166,7 @@ Implemented:
 
 **Evidence**
 
-![Functions Example](https://github.com/davidson-dba/sqlserver-labs/blob/main/sqlserver-client-database-project/images/07_function_discount_orderitem.png)
+![Functions Example](https://github.com/davidson-dba/sqlserver-labs/tree/main/sqlserver-client-database-project/images/07_function_discount_orderitem.png)
 
 ---
 
