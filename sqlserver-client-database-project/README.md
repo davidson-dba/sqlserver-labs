@@ -65,7 +65,7 @@ Populates the database with sample data used for queries and testing.
 SELECT COUNT(*) FROM Customer
 ```
 
-![Seed Data](images/02_seed_data.png)
+![Seed Data](https://github.com/davidson-dba/sqlserver-labs/blob/main/sqlserver-client-database-project/images/02_seed_data_counts.png)
 
 ---
 
