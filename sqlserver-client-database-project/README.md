@@ -63,9 +63,13 @@ Populates the database with sample data used for queries and testing.
 **Evidence**
 ```sql
 SELECT COUNT(*) FROM Customer
+SELECT COUNT(*) FROM Supplier
+SELECT COUNT(*) FROM Product
+SELECT COUNT(*) FROM Order
+SELECT COUNT(*) FROM OrderItem
 ```
 
-![Seed Data](https://github.com/davidson-dba/sqlserver-labs/blob/main/sqlserver-client-database-project/images/02_seed_data_counts.png)
+![Seed Data](https://github.com/davidson-dba/sqlserver-labs/tree/main/sqlserver-client-database-project/images/02_seed_data_counts.png)
 
 ---
 
