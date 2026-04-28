@@ -111,7 +111,7 @@ Implemented:
 
 **Evidence**
 
-![View Example](images/04_view_example.png)
+![View Example](https://github.com/davidson-dba/sqlserver-labs/tree/main/sqlserver-client-database-project/images/04_view_salesday_result.png)
 
 ---
 
@@ -130,7 +130,7 @@ Implemented:
 
 **Evidence**
 
-![Procedure Example](images/05_procedure_example.png)
+![Procedure Example](https://github.com/davidson-dba/sqlserver-labs/tree/main/sqlserver-client-database-project/images/05_sp_productlist_params.png)
 
 ---
 
@@ -149,7 +149,7 @@ Implemented:
 
 **Evidence**
 
-![Trigger Example](images/06_trigger_example.png)
+![Trigger Example](https://github.com/davidson-dba/sqlserver-labs/tree/main/sqlserver-client-database-project/images/06_trigger_audit_after_insert.png)
 
 ---
 
@@ -166,7 +166,7 @@ Implemented:
 
 **Evidence**
 
-![Functions Example](images/07_functions_example.png)
+![Functions Example](https://github.com/davidson-dba/sqlserver-labs/blob/main/sqlserver-client-database-project/images/07_function_discount_orderitem.png)
 
 ---
 
