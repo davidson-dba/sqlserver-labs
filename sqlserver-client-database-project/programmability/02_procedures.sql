@@ -1,5 +1,5 @@
 /*==============================================================*/
-/* SCRIPT 05 - STORED PROCEDURES                                            */
+/* SCRIPT 05 - STORED PROCEDURES */
 /*==============================================================*
 
 
@@ -434,7 +434,6 @@ EXEC SpSales 'customer;DROP TABLE SalesTest'
 
 
 -- To prevent SQL injection, you can use the QUOTENAME() function as shown in the following query:
--- https://docs.microsoft.com/en-us/sql/t-sql/functions/quotename-transact-sql?view=sql-server-ver15
 
 CREATE OR ALTER PROCEDURE SpSales (@schema NVARCHAR(128), @tablename NVARCHAR(128))
 AS
