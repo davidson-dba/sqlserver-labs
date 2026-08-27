@@ -69,7 +69,7 @@ SELECT COUNT(*) FROM Order
 SELECT COUNT(*) FROM OrderItem
 ```
 
-![Seed Data](https://github.com/davidson-dba/sqlserver-labs/tree/main/sqlserver-client-database-project/images/02_seed_data_counts.png)
+![Seed Data](images/02_seed_data_counts.png)
 
 ---
 
@@ -94,7 +94,7 @@ SELECT COUNT(*) FROM OrderItem
 **Evidence**
 Screenshot of complex JOIN query execution.
 
-![Query Example](https://github.com/davidson-dba/sqlserver-labs/tree/main/sqlserver-client-database-project/images/03_join_order_product_customer.png)
+![Query Example](images/03_join_order_product_customer.png)
 
 ---
 
@@ -111,7 +111,7 @@ Implemented:
 
 **Evidence**
 
-![View Example](https://github.com/davidson-dba/sqlserver-labs/tree/main/sqlserver-client-database-project/images/04_view_salesday_result.png)
+![View Example](images/04_view_salesday_result.png)
 
 ---
 
@@ -130,7 +130,7 @@ Implemented:
 
 **Evidence**
 
-![Procedure Example](https://github.com/davidson-dba/sqlserver-labs/tree/main/sqlserver-client-database-project/images/05_sp_productlist_params.png)
+![Procedure Example](images/05_sp_productlist_params.png)
 
 ---
 
@@ -149,7 +149,7 @@ Implemented:
 
 **Evidence**
 
-![Trigger Example](https://github.com/davidson-dba/sqlserver-labs/tree/main/sqlserver-client-database-project/images/06_trigger_audit_after_insert.png)
+![Trigger Example](images/06_trigger_audit_after_insert.png)
 
 ---
 
@@ -166,7 +166,7 @@ Implemented:
 
 **Evidence**
 
-![Functions Example](https://github.com/davidson-dba/sqlserver-labs/tree/main/sqlserver-client-database-project/images/07_function_discount_orderitem.png)
+![Functions Example](images/07_function_discount_orderitem.png)
 
 ---
 
