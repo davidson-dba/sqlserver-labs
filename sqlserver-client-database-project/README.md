@@ -50,7 +50,7 @@ Includes:
 **Evidence**
 Screenshot of the database and tables visible in Object Explorer.
 
-![Database and Tables Created]i(mages/01_create_database_tables_created.png)
+![Database and Tables Created](images/01_create_database_tables_created.png)
 
 ---
 
