@@ -63,7 +63,6 @@ sql/01_estrutura.sql              banco, schemas, tabelas, seed das regras
 sql/02_functions.sql              validação de CPF/CNPJ, conversão defensiva
 sql/03_procedures.sql             abertura de lote, validação, MERGE, exportação
 sql/04_carga_manual_e_testes.sql  carga via BULK INSERT e consultas de conferência
-sql/05_views_powerbi.sql          camada analítica (fatos e dimensões) + guia de DAX
 gerador/gerar_carteira.py         gera arquivos sintéticos com defeitos propositais
 docs/                             plano de execução, SSIS passo a passo, entrevista
 
@@ -89,10 +88,6 @@ python gerar_carteira.py --contratos 3000 --defeitos 0.10 --cedente 237
 
 -- 3. Carga e conferência (ajuste o caminho da pasta no início do script)
 :r sql\04_carga_manual_e_testes.sql
-
--- 4. Camada analítica para o Power BI
-:r sql\05_views_powerbi.sql
-```
 
 Para a versão com SSIS, ver `docs/02-ssis-passo-a-passo.md`.
 
