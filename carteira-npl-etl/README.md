@@ -191,7 +191,6 @@ O script `04_carga_manual_e_testes.sql` executa o mesmo pipeline via `BULK INSER
 **Parcela**: parcela órfã sem contrato correspondente, vencimento inválido, valor inválido, número de parcela inválido, parcela duplicada no lote.
 =======
 ---
->>>>>>> 2cd951b (Atualiza README com imagens e resultados da execucao)
 
 ## Limitações conhecidas
 
