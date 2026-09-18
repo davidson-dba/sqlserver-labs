@@ -97,22 +97,6 @@ Para a versão com SSIS, ver `docs/02-ssis-passo-a-passo.md`.
 
 **Parcela**: parcela órfã sem contrato correspondente, vencimento inválido, valor inválido, número de parcela inválido, parcela duplicada no lote.
 
-## Camada analítica
-
-O schema `exp` expõe um modelo estrela para consumo no Power BI: um fato
-de carteira no grão de contrato, um fato de qualidade de ingestão no grão
-de lote, um fato de rejeição no grão de violação, mais dimensões de
-cedente, produto, faixa de atraso e calendário.
-
-O dashboard tem duas páginas: a visão da carteira (aging, composição por
-produto, distribuição geográfica) e a visão de qualidade da ingestão
-(taxa de rejeição por cedente ao longo do tempo, ranking de motivos,
-drill-through para os registros concretos).
-
-A segunda página é o ponto do projeto: mostrar não só o que foi carregado,
-mas a qualidade do que chegou. O script `05_views_powerbi.sql` traz o
-passo a passo da conexão, os relacionamentos e as medidas DAX.
-
 ## Limitações conhecidas
 
 - As funções escalares de validação usadas em predicado do `WHERE` limitam paralelismo. Em volume alto, a abordagem seria materializar as colunas convertidas numa única passada ou usar função inline com valor de tabela.
