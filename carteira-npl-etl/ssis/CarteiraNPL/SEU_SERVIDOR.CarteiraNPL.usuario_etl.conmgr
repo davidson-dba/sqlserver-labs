@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SEUSERVIDOR.CarteiraNPL.SEUUSUARIO"
+  DTS:DTSID="{7D8A8B4C-BB3F-4F8E-A422-1175E269A73B}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=SEUSERVIDOR;User ID=sa;Initial Catalog=CarteiraNPL;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-CarteiraNPL-{7D8A8B4C-BB3F-4F8E-A422-1175E269A73B}SEUSERVIDOR.CarteiraNPL.SEUUSUARIO;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKWPTX9CqrUinWFpQCYduKwAAAAACAAAAAAAQZgAAAAEAACAAAACUarNnBIDH8lrcUvf4wHk6DgK0vIld5Z3B4DsAWLykPwAAAAAOgAAAAAIAACAAAABy6oTo4XeFX/82xZDpGa9JsHbo5boRxVs2vRLMrINntoAAAACorerojtVotyM+abWQ+RLjMx+em3QalWQS4qSJd8BmeSnezm9MlE5FmD6sO2cR1oqT+otPx+8V/sH0THEWB94C1X/xXrK0EDAQ+NsuoU8AhgyrEqq/HNQD+qcXYGzUBXBAJDYJ9V6nAW15sZ9HMwMo8/j9AQLmxf/OFBAom62Z+0AAAAAQm32BvanX+83n6c6i0aCwX1fhZ4FzjrPQZhFoHhQIOX091ca2Z684D+Z5OwHK89JbQFiT6bAacGA1rvmyOypx</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

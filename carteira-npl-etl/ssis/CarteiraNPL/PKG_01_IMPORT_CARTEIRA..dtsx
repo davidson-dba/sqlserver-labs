@@ -1,0 +1,1907 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/15/2026 9:53:38 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DVD"
+  DTS:CreatorName="DVD\Davidson"
+  DTS:DTSID="{AF63B215-52F0-461B-9307-B1EA216C3B2E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{32682BCC-B40B-4D17-AADB-72314203FCB2}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4CD7EA5C-2CEF-4BC3-90F5-FF7B552C7CD5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CodCedente">
+      <DTS:VariableValue
+        DTS:DataType="8">237</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A40FBB8F-AD15-4351-AC2C-1C50E537E668}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="IDLote">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E2A67950-C3B4-44BD-A610-33408EBBE6CB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="NomeArquivo">
+      <DTS:VariableValue
+        DTS:DataType="8">CONTRATOS_237_20260916.csv</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT Staging Contratos"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{25764780-BFBF-4839-AAA8-6D98B39593B4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Staging Contratos"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Staging Contratos\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Staging Contratos\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Staging Contratos\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT Staging Contratos\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\Derived Column.Outputs[Derived Column Output].Columns[ID_LOTE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Staging Contratos\Derived Column.Outputs[Derived Column Output].Columns[ID_LOTE]"
+                      name="ID_LOTE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::IDLote]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::IDLote]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Staging Contratos\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT Staging Contratos\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Staging Contratos\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Staging Contratos\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Staging Contratos\FF Contratos"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="FF Contratos"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Staging Contratos\FF Contratos.Connections[FlatFileConnection]"
+                  connectionManagerID="{04E0C3C6-81BB-4FDA-B576-BB1E12468258}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_CONTRATOS]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[cd_cedente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[cd_cedente]"
+                      length="100"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[cd_cedente]"
+                      name="cd_cedente"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[nu_contrato]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[nu_contrato]"
+                      length="100"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[nu_contrato]"
+                      name="nu_contrato"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[nu_documento]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[nu_documento]"
+                      length="100"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[nu_documento]"
+                      name="nu_documento"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[nm_devedor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[nm_devedor]"
+                      length="100"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[nm_devedor]"
+                      name="nm_devedor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[dt_nascimento]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[dt_nascimento]"
+                      length="100"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[dt_nascimento]"
+                      name="dt_nascimento"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[cd_produto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[cd_produto]"
+                      length="100"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[cd_produto]"
+                      name="cd_produto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[dt_contratacao]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[dt_contratacao]"
+                      length="100"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[dt_contratacao]"
+                      name="dt_contratacao"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[dt_vencimento]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[dt_vencimento]"
+                      length="100"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[dt_vencimento]"
+                      name="dt_vencimento"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[vl_principal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[vl_principal]"
+                      length="100"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[vl_principal]"
+                      name="vl_principal"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[vl_atualizado]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[vl_atualizado]"
+                      length="100"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[vl_atualizado]"
+                      name="vl_atualizado"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[qt_dias_atraso]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[qt_dias_atraso]"
+                      length="100"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[qt_dias_atraso]"
+                      name="qt_dias_atraso"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[sg_uf]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[sg_uf]"
+                      length="100"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[sg_uf]"
+                      name="sg_uf"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[nu_telefone]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[nu_telefone]"
+                      length="100"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[nu_telefone]"
+                      name="nu_telefone"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[ds_email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[ds_email]"
+                      length="100"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[ds_email]"
+                      name="ds_email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[cd_cedente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="cd_cedente" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[nu_contrato]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="nu_contrato" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[nu_documento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="nu_documento" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[nm_devedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="nm_devedor" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[dt_nascimento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="dt_nascimento" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[cd_produto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="cd_produto" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[dt_contratacao]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="dt_contratacao" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[dt_vencimento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="dt_vencimento" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[vl_principal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="vl_principal" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[vl_atualizado]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="vl_atualizado" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[qt_dias_atraso]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="qt_dias_atraso" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[sg_uf]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="sg_uf" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[nu_telefone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="nu_telefone" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].ExternalColumns[ds_email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="ds_email" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Staging Contratos\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stg].[contrato_carteira]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">10000</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Staging Contratos\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{7D8A8B4C-BB3F-4F8E-A422-1175E269A73B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DBSRV1.CarteiraNPL.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cd_cedente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="cd_cedente"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cd_cedente]"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[cd_cedente]" />
+                    <inputColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[nu_contrato]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nu_contrato"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nu_contrato]"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[nu_contrato]" />
+                    <inputColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[nu_documento]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nu_documento"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nu_documento]"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[nu_documento]" />
+                    <inputColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[nm_devedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nm_devedor"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nm_devedor]"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[nm_devedor]" />
+                    <inputColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dt_nascimento]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="dt_nascimento"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dt_nascimento]"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[dt_nascimento]" />
+                    <inputColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cd_produto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="cd_produto"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cd_produto]"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[cd_produto]" />
+                    <inputColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dt_contratacao]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="dt_contratacao"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dt_contratacao]"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[dt_contratacao]" />
+                    <inputColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dt_vencimento]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="dt_vencimento"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dt_vencimento]"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[dt_vencimento]" />
+                    <inputColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[vl_principal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="vl_principal"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vl_principal]"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[vl_principal]" />
+                    <inputColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[vl_atualizado]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="vl_atualizado"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vl_atualizado]"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[vl_atualizado]" />
+                    <inputColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[qt_dias_atraso]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="qt_dias_atraso"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[qt_dias_atraso]"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[qt_dias_atraso]" />
+                    <inputColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sg_uf]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="sg_uf"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sg_uf]"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[sg_uf]" />
+                    <inputColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[nu_telefone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nu_telefone"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nu_telefone]"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[nu_telefone]" />
+                    <inputColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ds_email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="ds_email"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ds_email]"
+                      lineageId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output].Columns[ds_email]" />
+                    <inputColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_LOTE]"
+                      cachedDataType="i4"
+                      cachedName="ID_LOTE"
+                      externalMetadataColumnId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id_lote]"
+                      lineageId="Package\DFT Staging Contratos\Derived Column.Outputs[Derived Column Output].Columns[ID_LOTE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id_stg]"
+                      dataType="i8"
+                      name="id_stg" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id_lote]"
+                      dataType="i4"
+                      name="id_lote" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cd_cedente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cd_cedente" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nu_contrato]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="nu_contrato" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nu_documento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="nu_documento" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nm_devedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="nm_devedor" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dt_nascimento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="dt_nascimento" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cd_produto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cd_produto" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dt_contratacao]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="dt_contratacao" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dt_vencimento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="dt_vencimento" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vl_principal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="vl_principal" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vl_atualizado]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="vl_atualizado" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[qt_dias_atraso]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="qt_dias_atraso" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sg_uf]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="sg_uf" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nu_telefone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="nu_telefone" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ds_email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="120"
+                      name="ds_email" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fl_valido]"
+                      dataType="bool"
+                      name="fl_valido" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dt_carga]"
+                      dataType="dbTimeStamp2"
+                      name="dt_carga" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Staging Contratos\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Staging Contratos\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Staging Contratos\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Staging Contratos\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Staging Contratos.Paths[Derived Column Output]"
+              endId="Package\DFT Staging Contratos\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT Staging Contratos\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT Staging Contratos.Paths[Flat File Source Output]"
+              endId="Package\DFT Staging Contratos\Derived Column.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\DFT Staging Contratos\FF Contratos.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT Staging Parcelas"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E04B1CA5-45D4-4756-8590-7300399F620C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Staging Parcelas"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Staging Parcelas\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Staging Parcelas\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Staging Parcelas\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT Staging Parcelas\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Staging Parcelas\Derived Column.Outputs[Derived Column Output].Columns[ID_LOTE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Staging Parcelas\Derived Column.Outputs[Derived Column Output].Columns[ID_LOTE]"
+                      name="ID_LOTE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::IDLote]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::IDLote]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Staging Parcelas\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT Staging Parcelas\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Staging Parcelas\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Staging Parcelas\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Staging Parcelas\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Staging Parcelas\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Staging Parcelas\FF PARCELAS"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="FF PARCELAS"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Staging Parcelas\FF PARCELAS.Connections[FlatFileConnection]"
+                  connectionManagerID="{C21F3552-819A-4D1A-928F-829B5D780976}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_PARCELAS]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].Columns[cd_cedente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].ExternalColumns[cd_cedente]"
+                      length="100"
+                      lineageId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].Columns[cd_cedente]"
+                      name="cd_cedente"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].Columns[nu_contrato]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].ExternalColumns[nu_contrato]"
+                      length="100"
+                      lineageId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].Columns[nu_contrato]"
+                      name="nu_contrato"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].Columns[nu_parcela]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].ExternalColumns[nu_parcela]"
+                      length="100"
+                      lineageId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].Columns[nu_parcela]"
+                      name="nu_parcela"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].Columns[dt_vencimento]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].ExternalColumns[dt_vencimento]"
+                      length="100"
+                      lineageId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].Columns[dt_vencimento]"
+                      name="dt_vencimento"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].Columns[vl_parcela]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].ExternalColumns[vl_parcela]"
+                      length="100"
+                      lineageId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].Columns[vl_parcela]"
+                      name="vl_parcela"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].Columns[ds_situacao]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].ExternalColumns[ds_situacao]"
+                      length="100"
+                      lineageId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].Columns[ds_situacao]"
+                      name="ds_situacao"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].ExternalColumns[cd_cedente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="cd_cedente" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].ExternalColumns[nu_contrato]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="nu_contrato" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].ExternalColumns[nu_parcela]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="nu_parcela" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].ExternalColumns[dt_vencimento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="dt_vencimento" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].ExternalColumns[vl_parcela]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="vl_parcela" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].ExternalColumns[ds_situacao]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="ds_situacao" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLEDB Staging Parcelas"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stg].[parcela_contrato]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">10000</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Connections[OleDbConnection]"
+                  connectionManagerID="{7D8A8B4C-BB3F-4F8E-A422-1175E269A73B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DBSRV1.CarteiraNPL.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].Columns[cd_cedente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="cd_cedente"
+                      externalMetadataColumnId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].ExternalColumns[cd_cedente]"
+                      lineageId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].Columns[cd_cedente]" />
+                    <inputColumn
+                      refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].Columns[nu_contrato]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nu_contrato"
+                      externalMetadataColumnId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].ExternalColumns[nu_contrato]"
+                      lineageId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].Columns[nu_contrato]" />
+                    <inputColumn
+                      refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].Columns[nu_parcela]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nu_parcela"
+                      externalMetadataColumnId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].ExternalColumns[nu_parcela]"
+                      lineageId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].Columns[nu_parcela]" />
+                    <inputColumn
+                      refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].Columns[dt_vencimento]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="dt_vencimento"
+                      externalMetadataColumnId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].ExternalColumns[dt_vencimento]"
+                      lineageId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].Columns[dt_vencimento]" />
+                    <inputColumn
+                      refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].Columns[vl_parcela]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="vl_parcela"
+                      externalMetadataColumnId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].ExternalColumns[vl_parcela]"
+                      lineageId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].Columns[vl_parcela]" />
+                    <inputColumn
+                      refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].Columns[ds_situacao]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="ds_situacao"
+                      externalMetadataColumnId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].ExternalColumns[ds_situacao]"
+                      lineageId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output].Columns[ds_situacao]" />
+                    <inputColumn
+                      refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].Columns[ID_LOTE]"
+                      cachedDataType="i4"
+                      cachedName="ID_LOTE"
+                      externalMetadataColumnId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].ExternalColumns[id_lote]"
+                      lineageId="Package\DFT Staging Parcelas\Derived Column.Outputs[Derived Column Output].Columns[ID_LOTE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].ExternalColumns[id_stg]"
+                      dataType="i8"
+                      name="id_stg" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].ExternalColumns[id_lote]"
+                      dataType="i4"
+                      name="id_lote" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].ExternalColumns[cd_cedente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cd_cedente" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].ExternalColumns[nu_contrato]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="nu_contrato" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].ExternalColumns[nu_parcela]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="nu_parcela" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].ExternalColumns[dt_vencimento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="dt_vencimento" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].ExternalColumns[vl_parcela]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="vl_parcela" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].ExternalColumns[ds_situacao]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="ds_situacao" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].ExternalColumns[fl_valido]"
+                      dataType="bool"
+                      name="fl_valido" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input].ExternalColumns[dt_carga]"
+                      dataType="dbTimeStamp2"
+                      name="dt_carga" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Staging Parcelas.Paths[Derived Column Output]"
+              endId="Package\DFT Staging Parcelas\OLEDB Staging Parcelas.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT Staging Parcelas\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT Staging Parcelas.Paths[Flat File Source Output]"
+              endId="Package\DFT Staging Parcelas\Derived Column.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\DFT Staging Parcelas\FF PARCELAS.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Abrir Lote"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="ABRIR LOTE SQL"
+      DTS:DTSID="{38559224-A841-4225-A1BC-6B981B49BEB2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Abrir Lote"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7D8A8B4C-BB3F-4F8E-A422-1175E269A73B}"
+          SQLTask:SqlStatementSource="EXEC ctl.sp_abrir_lote ?, ?, NULL, 1"
+          SQLTask:ResultType="ResultSetType_SingleRow"
+          SQLTask:TypeConversionMode="None" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::IDLote" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::NomeArquivo"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="260" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::CodCedente"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="10" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL CARREGAR"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{29970510-7B0C-4D0B-AEC8-FE19C8A1CDE9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL CARREGAR"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7D8A8B4C-BB3F-4F8E-A422-1175E269A73B}"
+          SQLTask:SqlStatementSource="EXEC crd.sp_carregar_lote ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::IDLote"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL VALIDAR"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D9CB7A66-B00F-44E5-AE83-D6B80BE00955}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL VALIDAR"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7D8A8B4C-BB3F-4F8E-A422-1175E269A73B}"
+          SQLTask:SqlStatementSource="EXEC stg.sp_validar_lote ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::IDLote"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{63862AD7-66F5-413F-9694-2E050F0718CB}"
+      DTS:From="Package\SQL Abrir Lote"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT Staging Contratos" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{79A2E6F5-5524-4B0B-AB68-50794159EF03}"
+      DTS:From="Package\DFT Staging Contratos"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DFT Staging Parcelas" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{D98AA930-22C3-4F29-801F-B5CED2902631}"
+      DTS:From="Package\DFT Staging Parcelas"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SQL VALIDAR" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{5360FDB4-9767-44EB-922F-22E8024192A1}"
+      DTS:From="Package\SQL VALIDAR"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SQL CARREGAR" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="191,42"
+          Id="Package\DFT Staging Contratos"
+          TopLeft="5.50000000000001,107.5" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\DFT Staging Parcelas"
+          TopLeft="8.00000000000003,209.5" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\SQL Abrir Lote"
+          TopLeft="16,5.5" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\SQL CARREGAR"
+          TopLeft="18,413.5" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\SQL VALIDAR"
+          TopLeft="25.5,311.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="101,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="101,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="101,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="101,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT Staging Contratos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\DFT Staging Contratos\OLE DB Destination"
+          TopLeft="618,309" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\DFT Staging Contratos\FF Contratos"
+          TopLeft="619,83" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DFT Staging Contratos\Derived Column"
+          TopLeft="628,179" />
+        <EdgeLayout
+          Id="Package\DFT Staging Contratos.Paths[Flat File Source Output]"
+          TopLeft="690.5,125">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.5,54"
+              Start="0,0"
+              End="16.5,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23"
+                    Point2="0,27"
+                    Point3="4,27" />
+                  <mssgle:LineSegment
+                    End="12.5,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.5,27"
+                    Point2="16.5,27"
+                    Point3="16.5,31" />
+                  <mssgle:LineSegment
+                    End="16.5,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Staging Contratos.Paths[Derived Column Output]"
+          TopLeft="706.75,221">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,88"
+              Start="0,0"
+              End="0,80.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,80.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Staging Contratos\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT Staging Parcelas">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="154,42"
+          Id="Package\DFT Staging Parcelas\FF PARCELAS"
+          TopLeft="318,110" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DFT Staging Parcelas\Derived Column"
+          TopLeft="613,215" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\DFT Staging Parcelas\OLEDB Staging Parcelas"
+          TopLeft="638,330" />
+        <EdgeLayout
+          Id="Package\DFT Staging Parcelas.Paths[Flat File Source Output]"
+          TopLeft="395,152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="297,63"
+              Start="0,0"
+              End="297,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.5"
+                    Point2="0,31.5"
+                    Point3="4,31.5" />
+                  <mssgle:LineSegment
+                    End="293,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="293,31.5"
+                    Point2="297,31.5"
+                    Point3="297,35.5" />
+                  <mssgle:LineSegment
+                    End="297,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Staging Parcelas.Paths[Derived Column Output]"
+          TopLeft="692,257">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="47,73"
+              Start="0,0"
+              End="47,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.5"
+                    Point2="0,36.5"
+                    Point3="4,36.5" />
+                  <mssgle:LineSegment
+                    End="43,36.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43,36.5"
+                    Point2="47,36.5"
+                    Point3="47,40.5" />
+                  <mssgle:LineSegment
+                    End="47,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Staging Parcelas\OLEDB Staging Parcelas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

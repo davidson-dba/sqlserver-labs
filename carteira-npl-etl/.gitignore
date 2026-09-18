@@ -1,0 +1,8 @@
+arquivos/entrada/*.csv
+arquivos/processados/*.csv
+arquivos/saida/*.csv
+*.dtsx.user
+bin/
+obj/
+.vs/
+__pycache__/
