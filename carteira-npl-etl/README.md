@@ -144,10 +144,7 @@ sql/01_estrutura.sql              banco, schemas, tabelas, seed das regras
 sql/02_functions.sql              validação de CPF/CNPJ, conversão defensiva
 sql/03_procedures.sql             abertura de lote, validação, MERGE, exportação
 sql/04_carga_manual_e_testes.sql  carga via BULK INSERT e consultas de conferência
-<<<<<<< HEAD
-=======
 ssis/CarteiraNPL/                 projeto do Visual Studio com o package
->>>>>>> 2cd951b (Atualiza README com imagens e resultados da execucao)
 gerador/gerar_carteira.py         gera arquivos sintéticos com defeitos propositais
 docs/                             passo a passo do SSIS e imagens
 ```
@@ -171,25 +168,12 @@ python gerar_carteira.py --contratos 3000 --defeitos 0.10 --cedente 237
 :r sql\01_estrutura.sql
 :r sql\02_functions.sql
 :r sql\03_procedures.sql
-<<<<<<< HEAD
-
--- 3. Carga e conferência (ajuste o caminho da pasta no início do script)
-:r sql\04_carga_manual_e_testes.sql
-
-Para a versão com SSIS, ver `docs/02-ssis-passo-a-passo.md`.
-=======
 ```
 
 Para executar pelo SSIS, abra o projeto em `ssis/CarteiraNPL`, ajuste o connection manager para a sua instância e os connection managers de flat file para o caminho dos CSV gerados.
->>>>>>> 2cd951b (Atualiza README com imagens e resultados da execucao)
 
 O script `04_carga_manual_e_testes.sql` executa o mesmo pipeline via `BULK INSERT`, sem depender do SSIS. Útil para testar toda a lógica T-SQL isoladamente.
 
-<<<<<<< HEAD
-**Contrato**: documento inválido pelo dígito verificador, nome ausente, data de contratação não convertível, data de contratação no futuro, valor principal inválido, valor atualizado menor que o principal (alerta), dias de atraso negativo, UF desconhecida (alerta), produto fora do catálogo, contrato duplicado no lote.
-
-**Parcela**: parcela órfã sem contrato correspondente, vencimento inválido, valor inválido, número de parcela inválido, parcela duplicada no lote.
-=======
 ---
 
 ## Limitações conhecidas
